@@ -7,6 +7,8 @@ class Burger extends Equatable {
   final String? thumbnail;
   final int price;
 
+  double get priceInEuro => price / 100;
+
   const Burger({
     required this.ref,
     required this.title,

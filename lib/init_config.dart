@@ -5,7 +5,7 @@ import 'package:useradgents_burger/core/constants/constants.dart';
 import 'package:useradgents_burger/data/data_sources/data_sources.dart';
 import 'package:useradgents_burger/data/repositories/repositories.dart';
 import 'package:useradgents_burger/domain/repositories/repositories.dart';
-import 'package:useradgents_burger/domain/usecases/usescases.dart';
+import 'package:useradgents_burger/domain/usecases/usecases.dart';
 import 'package:useradgents_burger/presentation/blocs/blocs.dart';
 
 GetIt getIt = GetIt.instance;
@@ -28,6 +28,10 @@ void registerBlocs() {
     () => BurgerBloc(
       getBurgersUseCase: getIt(),
     ),
+  );
+
+  getIt.registerFactory<NavigationCubit>(
+    () => NavigationCubit(),
   );
 }
 
