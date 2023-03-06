@@ -41,4 +41,30 @@ void main() {
       const CartState(orders: [order2]),
     ],
   );
+
+  blocTest(
+    'add same burger 2 time should return CartState with order quantity updated',
+    build: () => cartBloc,
+    act: (bloc) {
+      bloc.add(const AddOrderEvent(burger: burger1, quantity: 2));
+      bloc.add(const AddOrderEvent(burger: burger1, quantity: 1));
+    },
+    expect: () => [
+      const CartState(orders: [order1]),
+      const CartState(orders: [order3]),
+    ],
+  );
+
+  blocTest(
+    'add 2 burgers in cart should return CartState with 2 orders',
+    build: () => cartBloc,
+    act: (bloc) {
+      bloc.add(const AddOrderEvent(burger: burger1, quantity: 2));
+      bloc.add(const AddOrderEvent(burger: burger2, quantity: 1));
+    },
+    expect: () => [
+      const CartState(orders: [order1]),
+      const CartState(orders: [order1, order4]),
+    ],
+  );
 }

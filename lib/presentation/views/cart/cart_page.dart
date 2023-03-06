@@ -126,6 +126,7 @@ class CartPage extends StatelessWidget {
                             .copyWith(color: Colors.white)),
                     SizedBox(height: getProportionateScreenHeight(16.0)),
                     QuantityWidget(
+                      key: ValueKey(order.quantity),
                       buttonColor: AppTheme.mediumGreyColor,
                       initialValue: order.quantity,
                       onQuantityChanged: (quantity) {

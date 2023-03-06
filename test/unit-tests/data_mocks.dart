@@ -38,6 +38,14 @@ const Burger burger1 = Burger(
   price: 92820,
 );
 
+const Burger burger2 = Burger(
+  ref: "2",
+  title: "The Big Cheese Burger",
+  description: "Avec du fromage 🧀 c'est toujours meilleur.",
+  thumbnail: "https://uad.io/bigburger/images/2.png",
+  price: 12830,
+);
+
 const List<Burger> burgers = [
   Burger(
     ref: "1",
@@ -64,4 +72,14 @@ const Order order1 = Order(
 const Order order2 = Order(
   burger: burger1,
   quantity: 4,
+);
+
+const Order order3 = Order(
+  burger: burger1,
+  quantity: 3,
+);
+
+const Order order4 = Order(
+  burger: burger2,
+  quantity: 1,
 );
