@@ -5,6 +5,7 @@ import 'package:useradgents_burger/presentation/helpers/size_config.dart';
 import 'package:useradgents_burger/presentation/theme/app_theme.dart';
 import 'package:useradgents_burger/presentation/views/cart/cart_page.dart';
 import 'package:useradgents_burger/presentation/views/home/home_page.dart';
+import 'package:useradgents_burger/presentation/views/shop/shop_page.dart';
 
 class RootPage extends StatefulWidget {
   static const route = "/";
@@ -18,9 +19,9 @@ class RootPage extends StatefulWidget {
 class _RootPageState extends State<RootPage> {
   final List<Widget> _pages = [
     const HomePage(),
-    const Text("Page 2"),
+    const ShopPage(),
     const CartPage(),
-    const Text("Page 4"),
+    const Center(child:  Text("Profil")),
   ];
 
   @override
