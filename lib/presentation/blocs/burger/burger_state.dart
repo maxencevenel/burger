@@ -1,10 +1,27 @@
 part of 'burger_bloc.dart';
 
-abstract class BurgerState extends Equatable {
-  const BurgerState();
+class BurgerState extends Equatable {
+  final List<Burger> burgers;
+  final BlocStatus status;
+
+  const BurgerState({
+    this.burgers = const [],
+    this.status = BlocStatus.init,
+  });
+
+  BurgerState copyWith({
+    List<Burger>? burgers,
+    BlocStatus? status,
+  }) {
+    return BurgerState(
+      burgers: burgers ?? this.burgers,
+      status: status ?? this.status,
+    );
+  }
+
+  @override
+  List<Object> get props => [burgers, status];
+
+
 }
 
-class BurgerInitial extends BurgerState {
-  @override
-  List<Object> get props => [];
-}

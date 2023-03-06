@@ -1,24 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:useradgents_burger/app.dart';
 
-void main() {
+void main() async{
+  await initialize();
+
   runApp(const BurgerApp());
-}
-
-class BurgerApp extends StatelessWidget {
-  const BurgerApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Burger App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Scaffold(
-        body: Center(
-          child: Text("Burger App"),
-        ),
-      ),
-    );
-  }
 }
