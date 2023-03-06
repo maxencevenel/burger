@@ -15,6 +15,7 @@ class BurgerBloc extends Bloc<BurgerEvent, BurgerState> {
 
   BurgerBloc({required this.getBurgersUseCase}) : super(const BurgerState()) {
     on<GetBurgersEvent>(_onGetBurgers);
+    on<GetBurgerByIdEvent>(_onGetBurgerById);
   }
 
   FutureOr<void> _onGetBurgers(
@@ -22,7 +23,7 @@ class BurgerBloc extends Bloc<BurgerEvent, BurgerState> {
     emit(state.copyWith(status: BlocStatus.loading));
 
     var result = await getBurgersUseCase();
-    
+
     result.when(
       (success) => emit(state.copyWith(
         status: BlocStatus.success,
@@ -32,5 +33,12 @@ class BurgerBloc extends Bloc<BurgerEvent, BurgerState> {
         status: BlocStatus.error,
       )),
     );
+  }
+
+  FutureOr<void> _onGetBurgerById(
+      GetBurgerByIdEvent event, Emitter<BurgerState> emit) {
+    final currentBurger =
+        state.burgers.firstWhere((element) => element.ref == event.ref);
+    emit(state.copyWith(selectedBurger: currentBurger));
   }
 }

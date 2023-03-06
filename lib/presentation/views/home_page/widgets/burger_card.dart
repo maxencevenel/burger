@@ -1,30 +1,28 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:useradgents_burger/core/helpers/extensions/double_extension.dart';
+import 'package:useradgents_burger/domain/entities/burger.dart';
+import 'package:useradgents_burger/presentation/blocs/blocs.dart';
 import 'package:useradgents_burger/presentation/helpers/size_config.dart';
 import 'package:useradgents_burger/presentation/theme/app_theme.dart';
+import 'package:useradgents_burger/presentation/views/burger_detail_page/buger_detail_page.dart';
 import 'package:useradgents_burger/presentation/views/common/custom_network_image.dart';
 
 class BurgerCard extends StatelessWidget {
   const BurgerCard({
     super.key,
-    required this.name,
-    this.description,
-    this.image,
-    required this.price,
+    required this.burger,
   });
 
-  final String name;
-  final String? description;
-  final String? image;
-  final double price;
+  final Burger burger;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return GestureDetector(
       onTap: () {
-        print("tapped Card");
+        context.read<BurgerBloc>().add(GetBurgerByIdEvent(ref: burger.ref));
+        Navigator.pushNamed(context, BurgerDetailPage.route);
       },
       child: Stack(
         children: [
@@ -54,9 +52,9 @@ class BurgerCard extends StatelessWidget {
                       ),
                       child: const Center(
                           child: Icon(
-                            Icons.add,
-                            color: Colors.white,
-                          )),
+                        Icons.add,
+                        color: Colors.white,
+                      )),
                     ),
                   ),
                 )),
@@ -69,7 +67,7 @@ class BurgerCard extends StatelessWidget {
                 child: SizedBox(
                   height: MediaQuery.of(context).size.width * .2,
                   width: MediaQuery.of(context).size.width * .2,
-                  child: CustomNetworkImage(imagePath: image!),
+                  child: CustomNetworkImage(imagePath: burger.thumbnail!),
                 ),
               ),
               Padding(
@@ -81,18 +79,18 @@ class BurgerCard extends StatelessWidget {
                   children: [
                     SizedBox(height: getProportionateScreenHeight(8)),
                     FittedBox(
-                      child: Text(name, style: textTheme.titleMedium),
+                      child: Text(burger.title, style: textTheme.titleMedium),
                     ),
                     SizedBox(height: getProportionateScreenHeight(4)),
                     Text(
-                      description ?? "",
+                      burger.description ?? "",
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: textTheme.bodySmall,
                     ),
                     SizedBox(height: getProportionateScreenHeight(16.0)),
                     Text(
-                      "${price.format()}€",
+                      "${burger.priceInEuro.format()}€",
                       style: textTheme.titleLarge,
                     ),
                   ],

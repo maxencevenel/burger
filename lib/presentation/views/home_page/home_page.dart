@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:useradgents_burger/core/helpers/assets/assets.dart';
-import 'package:useradgents_burger/domain/entities/burger.dart';
 import 'package:useradgents_burger/presentation/blocs/burger/burger_bloc.dart';
 import 'package:useradgents_burger/presentation/helpers/size_config.dart';
 import 'package:useradgents_burger/presentation/theme/app_theme.dart';
@@ -35,13 +34,13 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     FilterIcon(
-                        name: "Chicken",
+                        name: "Poulet",
                         iconName: Assets.iconsChicken,
                         isSelected: true),
-                    FilterIcon(name: "Beef", iconName: Assets.iconsBeef),
+                    FilterIcon(name: "Boeuf", iconName: Assets.iconsBeef),
                     FilterIcon(
-                        name: "Vegetable", iconName: Assets.iconsVegetable),
-                    FilterIcon(name: "Cheese", iconName: Assets.iconsCheese),
+                        name: "Végétarien", iconName: Assets.iconsVegetable),
+                    FilterIcon(name: "Fromage", iconName: Assets.iconsCheese),
                   ],
                 )),
             Expanded(
@@ -61,7 +60,7 @@ class HomePage extends StatelessWidget {
                           mainAxisSpacing: getProportionateScreenHeight(16),
                         ),
                         itemBuilder: (context, index) =>
-                            _buildCard(context, state.burgers[index]),
+                            BurgerCard(burger: state.burgers[index]),
                         itemCount: state.burgers.length,
                       );
                     }
@@ -102,15 +101,6 @@ class HomePage extends StatelessWidget {
               child: const Text("Réessayer")),
         ],
       ),
-    );
-  }
-
-  Widget _buildCard(BuildContext context, Burger burger) {
-    return BurgerCard(
-      name: burger.title,
-      description: burger.description,
-      price: burger.priceInEuro,
-      image: burger.thumbnail,
     );
   }
 }
