@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:useradgents_burger/presentation/blocs/navigation/navigation_cubit.dart';
 import 'package:useradgents_burger/presentation/helpers/size_config.dart';
 import 'package:useradgents_burger/presentation/theme/app_theme.dart';
-import 'package:useradgents_burger/presentation/views/home_page/home_page.dart';
+import 'package:useradgents_burger/presentation/views/cart/cart_page.dart';
+import 'package:useradgents_burger/presentation/views/home/home_page.dart';
 
 class RootPage extends StatefulWidget {
   static const route = "/";
@@ -18,7 +19,7 @@ class _RootPageState extends State<RootPage> {
   final List<Widget> _pages = [
     const HomePage(),
     const Text("Page 2"),
-    const Text("Page 3"),
+    const CartPage(),
     const Text("Page 4"),
   ];
 

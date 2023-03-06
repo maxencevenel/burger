@@ -1,4 +1,5 @@
 import 'package:useradgents_burger/domain/entities/burger.dart';
+import 'package:useradgents_burger/domain/entities/order.dart';
 
 const responseGetBurgersJson = """
 [
@@ -53,3 +54,14 @@ const List<Burger> burgers = [
     price: 12830,
   ),
 ];
+
+
+const Order order1 = Order(
+  burger: burger1,
+  quantity: 2,
+);
+
+const Order order2 = Order(
+  burger: burger1,
+  quantity: 4,
+);

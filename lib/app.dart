@@ -14,14 +14,12 @@ class BurgerApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt<BurgerBloc>()..add(GetBurgersEvent()),
-        ),
-        BlocProvider(
-          create: (context) => getIt<NavigationCubit>(),
-        ),
+            create: (context) => getIt<BurgerBloc>()..add(GetBurgersEvent())),
+        BlocProvider(create: (context) => getIt<NavigationCubit>()),
+        BlocProvider(create: (context) => getIt<CartBloc>()),
       ],
       child: MaterialApp(
-        title: 'Burger App',
+        title: 'UserAdgents Shop',
         theme: AppTheme.theme,
         routes: Routes.routes,
       ),

@@ -7,4 +7,7 @@ class NavigationCubit extends Cubit<int> {
   void updateIndex(index) {
     emit(index);
   }
+
+  void navigateToHomePage() => updateIndex(0);
+  void navigateToCart() => updateIndex(2);
 }

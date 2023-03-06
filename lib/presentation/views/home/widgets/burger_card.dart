@@ -5,7 +5,7 @@ import 'package:useradgents_burger/domain/entities/burger.dart';
 import 'package:useradgents_burger/presentation/blocs/blocs.dart';
 import 'package:useradgents_burger/presentation/helpers/size_config.dart';
 import 'package:useradgents_burger/presentation/theme/app_theme.dart';
-import 'package:useradgents_burger/presentation/views/burger_detail_page/buger_detail_page.dart';
+import 'package:useradgents_burger/presentation/views/burger_detail/burger_detail_page.dart';
 import 'package:useradgents_burger/presentation/views/common/custom_network_image.dart';
 
 class BurgerCard extends StatelessWidget {

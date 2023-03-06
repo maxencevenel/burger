@@ -21,4 +21,22 @@ void main() {
     },
     expect: () => [2],
   );
+
+  blocTest(
+    'on navigateToHome emits 0',
+    build: () => navigationCubit,
+    act: (cubit) {
+      cubit.navigateToHomePage();
+    },
+    expect: () => [0],
+  );
+
+  blocTest(
+    'on navigateToCart emits 2',
+    build: () => navigationCubit,
+    act: (cubit) {
+      cubit.navigateToCart();
+    },
+    expect: () => [2],
+  );
 }

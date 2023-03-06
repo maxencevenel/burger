@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:useradgents_burger/presentation/blocs/quantity/quantity_cubit.dart';
 import 'package:useradgents_burger/presentation/helpers/size_config.dart';
 import 'package:useradgents_burger/presentation/theme/app_theme.dart';
 
@@ -8,11 +6,13 @@ class QuantityWidget extends StatefulWidget {
   const QuantityWidget({
     super.key,
     this.buttonColor = AppTheme.lightGreyColor,
+    this.initialValue = 0,
     required this.onQuantityChanged,
   });
 
   final Color buttonColor;
   final Function(int) onQuantityChanged;
+  final int initialValue;
 
   @override
   State<QuantityWidget> createState() => _QuantityWidgetState();
@@ -20,6 +20,12 @@ class QuantityWidget extends StatefulWidget {
 
 class _QuantityWidgetState extends State<QuantityWidget> {
   int _quantity = 0;
+
+  @override
+  initState() {
+    super.initState();
+    _quantity = widget.initialValue;
+  }
 
   @override
   Widget build(BuildContext context) {

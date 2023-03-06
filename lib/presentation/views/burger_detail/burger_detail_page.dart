@@ -37,7 +37,7 @@ class BurgerDetailPage extends StatelessWidget {
         actions: [
           GestureDetector(
             onTap: () {
-              context.read<NavigationCubit>().updateIndex(2);
+              context.read<NavigationCubit>().navigateToCart();
               Navigator.pop(context);
             },
             child: AspectRatio(
@@ -176,7 +176,7 @@ class BurgerDetailPage extends StatelessWidget {
                     onPressed: state == 0
                         ? null
                         : () {
-                            _addToCart(burger: burger);
+                            _addToCart(context: context, burger: burger);
                           },
                     child: const Text("Add to cart"),
                   );
@@ -189,5 +189,10 @@ class BurgerDetailPage extends StatelessWidget {
     );
   }
 
-  void _addToCart({required Burger burger}) {}
+  void _addToCart({required BuildContext context, required Burger burger}) {
+    context.read<CartBloc>().add(AddOrderEvent(
+        burger: burger, quantity: context.read<QuantityCubit>().state));
+    context.read<NavigationCubit>().navigateToCart();
+    Navigator.pop(context);
+  }
 }

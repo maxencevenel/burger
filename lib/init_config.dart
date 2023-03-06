@@ -33,6 +33,10 @@ void registerBlocs() {
   getIt.registerFactory<NavigationCubit>(
     () => NavigationCubit(),
   );
+
+  getIt.registerFactory<CartBloc>(
+    () => CartBloc(),
+  );
 }
 
 void registerUseCases() {
