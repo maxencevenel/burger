@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:useradgents_burger/init_config.dart';
 import 'package:useradgents_burger/presentation/routes/routes.dart';
@@ -29,6 +30,9 @@ class BurgerApp extends StatelessWidget {
 
 Future initialize() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
   initConfig();
 }
