@@ -1,16 +1,18 @@
-# useradgents_burger
+# Burger App
 
-Burger
+## Prerequisites
+- Flutter 3.7.0 (use fvm)
 
 ## Getting Started
+1. Clone the project
+2. Open the project in Android Studio or VSCode
+3. Run the command `flutter pub get` to install dependencies
+4. Run the command `flutter run` to run the app
 
-This project is a starting point for a Flutter application.
+## App screens
+<img src="https://github.com/maxencevenel/burger/blob/develop/screens/screen-homepage.png?raw=true" alt="Flutter Logo" width="300"/>
+<img src="https://github.com/maxencevenel/burger/blob/develop/screens/screen-details.png?raw=true" alt="Flutter Logo" width="300"/>
+<img src="https://github.com/maxencevenel/burger/blob/develop/screens/screen-cart.png?raw=true" alt="Flutter Logo" width="300"/>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Architecture
+<img src="https://github.com/maxencevenel/burger/blob/develop/screens/archi.png?raw=true" alt="Flutter Logo" width="800"/>
